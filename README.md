@@ -16,30 +16,6 @@ The **eSim Automated Tool Manager** is an automated cross-platform tool and depe
 
 ---
 
-## 🎬 Execution Video & Interactive Demo
-
-A Full HD (1080p) execution video demonstrating all features and evaluation criteria has been compiled and included directly in this repository:
-
-* 📥 **Direct Video File:** [**`esim_tool_manager_demo.mp4`**](esim_tool_manager_demo.mp4) *(1.16 MB, Full HD 1080p H.264)*
-* 🌐 **Interactive Web Player:** [**`demo_video_player.html`**](demo_video_player.html) *(Open in any browser to watch with chapter navigation)*
-
-```html
-<video src="esim_tool_manager_demo.mp4" controls="controls" width="100%" style="max-width: 900px; border-radius: 8px;">
-  Your browser does not support the video tag. Download esim_tool_manager_demo.mp4 to view.
-</video>
-```
-
-### Video Timeline & Chapters:
-* **0:00 - 0:04** • Title Card & Candidate Submission Details (Shreeprithika)
-* **0:04 - 0:13** • Feature 1 & 4: System Health Check & Diagnostic (`esim-tools doctor`)
-* **0:13 - 0:21** • Feature 1 & 2: Automated Multi-Backend Installation & Upstream Update Tracking
-* **0:21 - 0:29** • Feature 3: Configuration Handling & eSim Environment Profile Exports
-* **0:29 - 0:34** • Feature 5: Modern Graphical User Interface (GUI - Tkinter & TTK)
-* **0:34 - 0:40** • Quality Assurance: Automated Test Suite (17 tests, 100% passing)
-* **0:40 - 0:44** • Conclusion & Evaluator Access Details (`Eyantra698Sumanto`)
-
----
-
 ## 🌟 Key Features
 
 The project fulfills and exceeds **all five requirements** of the screening task:
