@@ -4,12 +4,39 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]()
 [![Tests](https://img.shields.io/badge/tests-17%20passed%2C%200%20failed-brightgreen.svg)]()
+[![Video](https://img.shields.io/badge/demo-1080p%20MP4%20included-red.svg)](esim_tool_manager_demo.mp4)
 [![Task](https://img.shields.io/badge/eSim%20Internship-Task%205%3A%20Tool%20Manager-orange.svg)]()
 
 > **FOSSEE eSim Winter Internship - 2026 / Semester Long Internship (Autumn 2026)**  
-> **Screening Task 5: Tool Manager (CSE and related fields)**
+> **Screening Task 5: Tool Manager (CSE and related fields)**  
+> **Candidate:** Shreeprithika  
+> **Repository:** [https://github.com/Shreeprithika/fossee_esimtoolmanager](https://github.com/Shreeprithika/fossee_esimtoolmanager)
 
-The **eSim Automated Tool Manager** is a cross-platform tool and dependency management suite for [FOSSEE eSim EDA](https://esim.fossee.in/). It automates the discovery, installation, configuration, health verification, and updating of external tools and libraries required for circuit simulation and PCB design.
+The **eSim Automated Tool Manager** is an automated cross-platform tool and dependency management suite for [FOSSEE eSim EDA](https://esim.fossee.in/). It automates the discovery, installation, configuration, health verification, and updating of external tools and libraries required for circuit simulation and PCB design.
+
+---
+
+## 🎬 Execution Video & Interactive Demo
+
+A Full HD (1080p) execution video demonstrating all features and evaluation criteria has been compiled and included directly in this repository:
+
+* 📥 **Direct Video File:** [**`esim_tool_manager_demo.mp4`**](esim_tool_manager_demo.mp4) *(1.16 MB, Full HD 1080p H.264)*
+* 🌐 **Interactive Web Player:** [**`demo_video_player.html`**](demo_video_player.html) *(Open in any browser to watch with chapter navigation)*
+
+```html
+<video src="esim_tool_manager_demo.mp4" controls="controls" width="100%" style="max-width: 900px; border-radius: 8px;">
+  Your browser does not support the video tag. Download esim_tool_manager_demo.mp4 to view.
+</video>
+```
+
+### Video Timeline & Chapters:
+* **0:00 - 0:04** • Title Card & Candidate Submission Details (Shreeprithika)
+* **0:04 - 0:13** • Feature 1 & 4: System Health Check & Diagnostic (`esim-tools doctor`)
+* **0:13 - 0:21** • Feature 1 & 2: Automated Multi-Backend Installation & Upstream Update Tracking
+* **0:21 - 0:29** • Feature 3: Configuration Handling & eSim Environment Profile Exports
+* **0:29 - 0:34** • Feature 5: Modern Graphical User Interface (GUI - Tkinter & TTK)
+* **0:34 - 0:40** • Quality Assurance: Automated Test Suite (17 tests, 100% passing)
+* **0:40 - 0:44** • Conclusion & Evaluator Access Details (`Eyantra698Sumanto`)
 
 ---
 
@@ -56,9 +83,13 @@ fossee/
 │   ├── test_config.py              # Tests for configuration and profile export
 │   ├── test_installer.py           # Tests for archive extraction & installation logic
 │   ├── test_updater.py             # Tests for backups, updates, and rollback
-│   └── run_tests.py                # Master test runner
-├── scripts/                        # Utility and demonstration scripts
-│   └── demo.py                     # 60-second automated end-to-end showcase
+│   └── run_tests.py                # Master test runner (17 tests, 100% passing)
+├── scripts/                        # Utility, demonstration, and video scripts
+│   ├── demo.py                     # 30-second automated end-to-end showcase
+│   ├── generate_video.py           # Re-renders the 1080p MP4 execution video
+│   └── export_report_html.py       # Converts design doc to styled HTML for PDF export
+├── esim_tool_manager_demo.mp4      # Full HD 1080p Execution Showcase Video
+├── demo_video_player.html          # Interactive HTML5 Video Player
 ├── DESIGN_DOCUMENT.md              # Complete Architectural Design Document
 ├── PRESENTATION_OUTLINE.md         # Video demo script and slide deck outline
 ├── SUBMISSION_GUIDELINES.md        # Submission procedure and evaluator access instructions
@@ -69,98 +100,128 @@ fossee/
 
 ---
 
-## 🚀 Quickstart & Execution Instructions
+## 🛠️ Step-by-Step Compilation & Execution Commands
 
-### Prerequisites
-* **Python 3.8 or higher** (Python 3.8 to 3.13 supported).
-* **Zero required external dependencies:** The entire core system, CLI, GUI, and test suite run using Python's standard library.
+Follow these commented terminal commands to compile, test, run, and explore the project:
 
-### 1. Run the Automated Demo
-To see all 5 features in action in under 30 seconds:
+### 1. Clone & Set Up Workspace
 ```bash
+# Clone the repository
+git clone https://github.com/Shreeprithika/fossee_esimtoolmanager.git
+
+# Enter project directory
+cd fossee_esimtoolmanager
+```
+
+### 2. Compile & Install the Package
+The core system uses 100% Python Standard Library. To register the commands globally:
+```bash
+# Compile and install in editable development mode (creates 'esim-tools' command)
+python -m pip install -e .
+```
+
+---
+
+### 3. Run the Automated Demo (30 Seconds)
+```bash
+# Executes a complete end-to-end demonstration across all 5 features
 python scripts/demo.py
 ```
 
-### 2. Run the Full Test Suite
-To execute all 17 automated unit and integration tests:
+---
+
+### 4. Run the Full Test Suite
 ```bash
+# Executes all 17 automated unit and integration tests (zero failures)
 python tests/run_tests.py
 ```
 
-### 3. Using the Command-Line Interface (CLI)
+---
 
-#### A. Run eSim Doctor (Comprehensive Health Check)
+### 5. Command-Line Interface (CLI) Usage
+
+#### A. Run Health Diagnostic ("eSim Doctor")
 ```bash
+# Scans system OS, architecture, package managers, 6 EDA tools, and 5 Python libraries
 python -m esim_tool_manager.cli doctor
 ```
-*Scans your operating system, package managers, all 6 external EDA tools, and Python dependencies, producing a colorized diagnostic report.*
 
 #### B. List Registered Tools & Status
 ```bash
+# Displays table of tools, installed versions, required versions, and status
 python -m esim_tool_manager.cli list
 ```
 
-#### C. Install Missing Tools
-* **Dry-Run Mode (Preview commands without making changes):**
-  ```bash
-  python -m esim_tool_manager.cli install ngspice --dry-run
-  ```
-* **Install a specific tool:**
-  ```bash
-  python -m esim_tool_manager.cli install ngspice
-  ```
-* **Install all missing tools:**
-  ```bash
-  python -m esim_tool_manager.cli install all
-  ```
-* **Install missing Python dependencies:**
-  ```bash
-  python -m esim_tool_manager.cli install python
-  ```
+#### C. Install External Tools
+```bash
+# Dry-run installation of Ngspice (simulates command without altering system)
+python -m esim_tool_manager.cli install ngspice --dry-run
 
-#### D. Check & Upgrade Tools
-* **Check upstream releases:**
-  ```bash
-  python -m esim_tool_manager.cli check-updates
-  ```
-* **Upgrade all tools (with automated backup):**
-  ```bash
-  python -m esim_tool_manager.cli update all
-  ```
+# Automatically install all missing tools
+python -m esim_tool_manager.cli install all
+
+# Install missing Python scientific dependencies
+python -m esim_tool_manager.cli install python
+```
+
+#### D. Check Upstream Updates & Upgrade
+```bash
+# Probes GitHub Releases API and PyPI API for newer tool versions
+python -m esim_tool_manager.cli check-updates
+
+# Upgrade all tools with automatic backup and rollback on failure
+python -m esim_tool_manager.cli update all
+```
 
 #### E. Configure eSim Environment & Tool Paths
 ```bash
+# Auto-detects tool paths, generates .esimrc, config.ini, setup_esim_env.bat, and setup_esim_env.sh
 python -m esim_tool_manager.cli configure
 ```
-*Generates `.esimrc`, `config.ini`, `setup_esim_env.bat` (Windows), `setup_esim_env.sh` (Linux/macOS), and persistent environment scripts.*
 
-#### F. View Action Logs
+#### F. View Action & Audit Logs
 ```bash
+# Displays the most recent 20 audit events recorded in esim_actions.jsonl
 python -m esim_tool_manager.cli logs --limit 20
 ```
 
 #### G. Interactive Menu
-Simply run the CLI without arguments to launch the interactive text menu:
 ```bash
+# Launches the interactive numeric terminal menu
 python -m esim_tool_manager.cli
 ```
 
 ---
 
-### 4. Using the Modern Graphical User Interface (GUI)
-
-Launch the modern dark-themed GUI:
+### 6. Modern Graphical User Interface (GUI) Usage
 ```bash
-python -m esim_tool_manager.cli gui
-# OR
+# Launch the modern dark-themed desktop GUI (Tkinter/TTK)
 python -m esim_tool_manager.gui
+# OR
+python -m esim_tool_manager.cli gui
 ```
 
-#### GUI Capabilities:
-* **External Tools Tab:** Displays real-time table of tools, installed vs. recommended versions, and colorized status tags (`OK`, `MISSING`, `OUTDATED`). Contains 1-click action buttons for Doctor, Install, Update, and Configure.
-* **Python Dependencies Tab:** Displays table of Python modules (`matplotlib`, `numpy`, `scipy`, `PyQt5`, `ply`) with 1-click install/upgrade.
-* **Settings & Environment Tab:** Interactive directory selector for custom tool installation locations and preferred package managers.
-* **Action & Audit Logs Tab:** Live real-time streaming view of the audit log (`esim_actions.jsonl`).
+#### GUI Tabs & Features:
+* **External Tools:** Displays real-time table of tools, installed vs. recommended versions, and colorized status tags (`OK`, `MISSING`, `OUTDATED`). Contains 1-click action buttons for Doctor, Install, Update, and Configure.
+* **Python Dependencies:** Displays table of Python modules (`matplotlib`, `numpy`, `scipy`, `PyQt5`, `ply`) with 1-click install/upgrade.
+* **Settings & Environment:** Interactive directory selector for custom tool installation locations and preferred package managers.
+* **Action & Audit Logs:** Live real-time streaming view of the audit log (`esim_actions.jsonl`).
+
+---
+
+### 7. Re-Compiling the Execution Video & Reports
+
+#### Re-render the 1080p MP4 Video:
+```bash
+# Requires imageio, imageio-ffmpeg, and pillow
+python scripts/generate_video.py
+```
+
+#### Export Printable HTML/PDF Design Document:
+```bash
+# Generates eSim_Task5_Design_Document.html for browser viewing or PDF printing
+python scripts/export_report_html.py
+```
 
 ---
 
@@ -200,22 +261,25 @@ test_system_info_model (test_platform.TestPlatformDetector) ... ok
 test_backup_and_rollback (test_updater.TestToolUpdater) ... ok
 
 ----------------------------------------------------------------------
-Ran 17 tests in 0.786s
+Ran 17 tests in 0.889s
 
 OK
 ======================================================================
-Tests Run: 17 | Errors: 0 | Failures: 0
+Tests Run: 17 | Errors: 0 | Failures: 0 | STATUS: 100% PASS
 ======================================================================
 ```
 
 ---
 
-## 📬 Submission Information
+## 📬 Official Submission Information
 
-* **Candidate Task:** Task 5 - Tool Manager (CSE and related fields)
+* **Candidate Name:** Shreeprithika
+* **Selected Task:** Task 5 - Tool Manager (CSE and related fields)
+* **GitHub Repository:** [https://github.com/Shreeprithika/fossee_esimtoolmanager](https://github.com/Shreeprithika/fossee_esimtoolmanager)
+* **Evaluator Access:** Granted to GitHub ID [`Eyantra698Sumanto`](https://github.com/Eyantra698Sumanto)
 * **Design Document:** [DESIGN_DOCUMENT.md](DESIGN_DOCUMENT.md)
-* **Presentation Outline:** [PRESENTATION_OUTLINE.md](PRESENTATION_OUTLINE.md)
+* **Demo Video:** [esim_tool_manager_demo.mp4](esim_tool_manager_demo.mp4)
+* **Interactive Player:** [demo_video_player.html](demo_video_player.html)
 * **Submission Guide:** [SUBMISSION_GUIDELINES.md](SUBMISSION_GUIDELINES.md)
-* **Evaluator Access:** GitHub ID [`Eyantra698Sumanto`](https://github.com/Eyantra698Sumanto)
 * **Submission Email:** `contact-esim@fossee.in`
 * **Subject Line:** `eSim Semester Long Internship - Autumn 2026 Submission Task 5`
