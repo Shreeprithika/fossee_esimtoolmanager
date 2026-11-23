@@ -1,0 +1,275 @@
+{
+  "manifest_version": "1.0",
+  "last_updated": "2026-03-01",
+  "tools": {
+    "ngspice": {
+      "name": "Ngspice",
+      "category": "simulation",
+      "description": "Open-source mixed-signal circuit simulator for SPICE netlists",
+      "min_version": "34.0",
+      "recommended_version": "42.0",
+      "binary": {
+        "windows": "ngspice.exe",
+        "linux": "ngspice",
+        "darwin": "ngspice"
+      },
+      "version_check": {
+        "args": ["-v"],
+        "regex": "ngspice-?([0-9]+(\\.[0-9]+)?)"
+      },
+      "env_var": "NGSPICE_PATH",
+      "install": {
+        "windows": {
+          "package_manager": {
+            "winget": "Ngspice.Ngspice",
+            "choco": "ngspice"
+          },
+          "direct_download": {
+            "url": "https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42_64.zip/download",
+            "archive_type": "zip",
+            "executable_relative_path": "Spice64/bin/ngspice.exe"
+          }
+        },
+        "linux": {
+          "package_manager": {
+            "apt": ["ngspice", "libngspice0-dev"],
+            "dnf": ["ngspice", "ngspice-devel"],
+            "pacman": ["ngspice"]
+          }
+        },
+        "darwin": {
+          "package_manager": {
+            "brew": ["ngspice"]
+          }
+        }
+      },
+      "upstream": {
+        "type": "github_or_source",
+        "repo": "ngspice/ngspice",
+        "latest_url": "https://sourceforge.net/projects/ngspice/files/"
+      }
+    },
+    "kicad": {
+      "name": "KiCad EDA",
+      "category": "schematic_pcb",
+      "description": "Schematic capture (Eeschema) and PCB layout engine integrated into eSim",
+      "min_version": "6.0.0",
+      "recommended_version": "8.0.0",
+      "binary": {
+        "windows": "kicad.exe",
+        "linux": "kicad",
+        "darwin": "kicad"
+      },
+      "version_check": {
+        "args": ["--version"],
+        "regex": "([0-9]+\\.[0-9]+\\.[0-9]+)"
+      },
+      "env_var": "KICAD_PATH",
+      "install": {
+        "windows": {
+          "package_manager": {
+            "winget": "KiCad.KiCad",
+            "choco": "kicad"
+          }
+        },
+        "linux": {
+          "package_manager": {
+            "apt": ["kicad", "kicad-libraries", "kicad-symbols"],
+            "dnf": ["kicad", "kicad-packages3d"],
+            "pacman": ["kicad", "kicad-library"]
+          }
+        },
+        "darwin": {
+          "package_manager": {
+            "brew": ["kicad"]
+          }
+        }
+      },
+      "upstream": {
+        "type": "github",
+        "repo": "KiCad/kicad-source-mirror"
+      }
+    },
+    "ghdl": {
+      "name": "GHDL",
+      "category": "digital_simulation",
+      "description": "VHDL simulator and compiler used for digital co-simulation (NgVeri)",
+      "min_version": "1.0.0",
+      "recommended_version": "4.1.0",
+      "binary": {
+        "windows": "ghdl.exe",
+        "linux": "ghdl",
+        "darwin": "ghdl"
+      },
+      "version_check": {
+        "args": ["--version"],
+        "regex": "GHDL ([0-9]+\\.[0-9]+(\\.[0-9]+)?)"
+      },
+      "env_var": "GHDL_PATH",
+      "install": {
+        "windows": {
+          "package_manager": {
+            "winget": "GHDL.GHDL",
+            "choco": "ghdl"
+          },
+          "direct_download": {
+            "url": "https://github.com/ghdl/ghdl/releases/download/v4.1.0/ghdl-mcode-4.1.0-win64.zip",
+            "archive_type": "zip",
+            "executable_relative_path": "bin/ghdl.exe"
+          }
+        },
+        "linux": {
+          "package_manager": {
+            "apt": ["ghdl", "ghdl-llvm"],
+            "dnf": ["ghdl"],
+            "pacman": ["ghdl"]
+          }
+        },
+        "darwin": {
+          "package_manager": {
+            "brew": ["ghdl"]
+          }
+        }
+      },
+      "upstream": {
+        "type": "github",
+        "repo": "ghdl/ghdl"
+      }
+    },
+    "verilator": {
+      "name": "Verilator",
+      "category": "digital_simulation",
+      "description": "Fast Verilog/SystemVerilog simulator and compiler for mixed-signal simulation",
+      "min_version": "4.038",
+      "recommended_version": "5.020",
+      "binary": {
+        "windows": "verilator.exe",
+        "linux": "verilator",
+        "darwin": "verilator"
+      },
+      "version_check": {
+        "args": ["--version"],
+        "regex": "Verilator ([0-9]+\\.[0-9]+)"
+      },
+      "env_var": "VERILATOR_PATH",
+      "install": {
+        "windows": {
+          "package_manager": {
+            "choco": "verilator"
+          }
+        },
+        "linux": {
+          "package_manager": {
+            "apt": ["verilator"],
+            "dnf": ["verilator"],
+            "pacman": ["verilator"]
+          }
+        },
+        "darwin": {
+          "package_manager": {
+            "brew": ["verilator"]
+          }
+        }
+      },
+      "upstream": {
+        "type": "github",
+        "repo": "verilator/verilator"
+      }
+    },
+    "makerchip": {
+      "name": "Makerchip (SandPiper-SA)",
+      "category": "digital_ide",
+      "description": "TL-Verilog / SandPiper standalone compiler for Makerchip integration",
+      "min_version": "0.1.0",
+      "recommended_version": "1.0.0",
+      "binary": {
+        "windows": "sandpiper-sa.exe",
+        "linux": "sandpiper-sa",
+        "darwin": "sandpiper-sa"
+      },
+      "version_check": {
+        "args": ["--version"],
+        "regex": "([0-9]+\\.[0-9]+(\\.[0-9]+)?)"
+      },
+      "env_var": "MAKERCHIP_PATH",
+      "install": {
+        "windows": {
+          "pip": "sandpiper-sa"
+        },
+        "linux": {
+          "pip": "sandpiper-sa"
+        },
+        "darwin": {
+          "pip": "sandpiper-sa"
+        }
+      },
+      "upstream": {
+        "type": "pip",
+        "package": "sandpiper-sa"
+      }
+    },
+    "compiler": {
+      "name": "C/C++ Build Toolchain (GCC/Make)",
+      "category": "build_system",
+      "description": "C/C++ compiler and Make utility for compiling NgVeri wrappers and simulation models",
+      "min_version": "8.0",
+      "recommended_version": "11.0",
+      "binary": {
+        "windows": "gcc.exe",
+        "linux": "gcc",
+        "darwin": "clang"
+      },
+      "version_check": {
+        "args": ["--version"],
+        "regex": "(gcc|clang|version) ([0-9]+\\.[0-9]+)"
+      },
+      "env_var": "GCC_PATH",
+      "install": {
+        "windows": {
+          "package_manager": {
+            "winget": "MSYS2.MSYS2",
+            "choco": "mingw"
+          }
+        },
+        "linux": {
+          "package_manager": {
+            "apt": ["build-essential", "gcc", "g++", "make"],
+            "dnf": ["gcc", "gcc-c++", "make"],
+            "pacman": ["base-devel", "gcc", "make"]
+          }
+        },
+        "darwin": {
+          "package_manager": {
+            "brew": ["gcc", "make"]
+          }
+        }
+      },
+      "upstream": {
+        "type": "system"
+      }
+    }
+  },
+  "python_dependencies": {
+    "matplotlib": {
+      "min_version": "3.3.0",
+      "purpose": "Waveform plotting and simulation waveform visualization in eSim"
+    },
+    "numpy": {
+      "min_version": "1.19.0",
+      "purpose": "Numerical computation and matrix data arrays"
+    },
+    "scipy": {
+      "min_version": "1.5.0",
+      "purpose": "Scientific routines, signal processing, and interpolation"
+    },
+    "PyQt5": {
+      "min_version": "5.15.0",
+      "alternative": "PyQt6",
+      "purpose": "Graphical User Interface framework for eSim"
+    },
+    "ply": {
+      "min_version": "3.11",
+      "purpose": "Python Lex-Yacc parser used in subcircuit parsing and Netlist generation"
+    }
+  }
+}

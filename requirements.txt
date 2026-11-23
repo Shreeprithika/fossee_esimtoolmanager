@@ -1,0 +1,4 @@
+# Core Tool Manager has zero required external dependencies (100% Python Standard Library).
+# Optional packages for enhanced CLI formatting and testing:
+rich>=13.0.0
+pytest>=7.0.0
